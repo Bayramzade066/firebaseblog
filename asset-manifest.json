@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/firebaseblog/static/css/main.6e3eac2d.css",
+    "main.js": "/firebaseblog/static/js/main.deae569f.js",
+    "index.html": "/firebaseblog/index.html",
+    "main.6e3eac2d.css.map": "/firebaseblog/static/css/main.6e3eac2d.css.map",
+    "main.deae569f.js.map": "/firebaseblog/static/js/main.deae569f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e3eac2d.css",
+    "static/js/main.deae569f.js"
+  ]
+}
