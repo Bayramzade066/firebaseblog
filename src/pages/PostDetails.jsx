@@ -33,20 +33,24 @@ function PostDetails() {
 
 
 const user = newlists.find(u => u.id===String(id))
-console.log(user)
+
 
   return (
    <div className="details">
 
      <h1 className="header">{user?.title}</h1>
      <div className="postimg">
-       <img src={`${user?.url}`} alt="" />
+       <img src={`${user?.url}`} className='details-img' alt="" />
      </div>
      <h2>Kateqoriya: {user?.category}</h2>
      
      <p>{user?.post}</p>
+     {user?.author.number ? <p>{user?.author.number}</p>
+     :
+     <>
      <p>Yazar: {user?.author.name}</p>
-     <p>Email: {user?.author.id}</p>   
+     <p>Email: {user?.author.id}</p> </> 
+      }
    </div>
   ) 
 }

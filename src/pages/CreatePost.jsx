@@ -1,45 +1,55 @@
 import React, { useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection} from 'firebase/firestore';
 import { auth, db } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
 
 
+
+
 function CreatePost() {
+
 
   const [title, setTitle] = useState("")
   const [url, setUrl] = useState("")
   const [category, setCategory] = useState("")
   const [post, setPost] = useState("")
   const newsCollectionRef = collection(db, "news")
+  const [loader, setloader] = useState(false)
+
   let navigate = useNavigate();
 
 
 
-  
-  
-  const createPost = async () => {
-    await addDoc(newsCollectionRef, {
-      title,
-      url,
-      category,
-      post,
-       author: {
-          name: auth.currentUser.displayName,
-           id: auth.currentUser.email 
-          }
-  });
-    navigate("/")
+ 
+
+    const createPost = async () => {
+      setloader(true);
+        await addDoc(newsCollectionRef, {
+        title,
+        url,
+        category,
+        post,
+         author: {
+            name: auth.currentUser.displayName,
+             id: auth.currentUser.email,
+             number: auth.currentUser.phoneNumber
+            }
+    });   
+    navigate("/login")
   }
+
+
+
 
 
 
   return (
     <div className="createPostPage">
       <div className="cpContainer">
-        <h1>Yeni post Yarat</h1>
+       <h1 className='text-3xl font-bold'>Yeni post Yarat</h1> 
         <div className="inputGp">
           <label> Başlıq:</label>
-          <input placeholder="Başlıq..." onChange={(event) => {
+          <input placeholder="Başlıq..."  onChange={(event) => {
             setTitle(event.target.value)
           }} />
         </div>
@@ -61,8 +71,10 @@ function CreatePost() {
             setPost(event.target.value)
           }} />
         </div>
-        <button onClick={createPost} > Postu yüklə</button>
+      <button onClick={createPost} > {!loader ? "Postu yüklə" : 'Yüklənir..'}</button>  
       </div>
+        
+      
     </div>
   )
 }

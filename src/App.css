@@ -2,26 +2,16 @@
   text-align: center;
 }
 body {
+  width: 100%;
   padding: 0%;
   margin: 0%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
   background-image: url(https://c1.wallpaperflare.com/preview/685/952/1014/desktop-desktop-background-desktop-backgrounds-desktop-wallpaper.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-nav {
-  margin: 0;
-  width: 100%;
-  height: 80px;
-  background-color: #246397;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 20px;
-}
+
 
 a {
   color: white;
@@ -41,7 +31,7 @@ a {
   width: 500px;
   height: auto;
   padding: 20px;
-  background-color: #272727;
+  background-color: #f06a32;
   border-radius: 3px;
   color: white;
   display: flex;
@@ -70,9 +60,11 @@ a {
 }
 
 .inputGp input {
+  color: black;
   height: 40px;
 }
 .inputGp textarea {
+  color: black;
   height: 100px;
 }
 
@@ -91,10 +83,19 @@ input,
 textarea {
   margin-top: 5px;
 }
+.loginPage_main{
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .loginPage {
-  width: 100vw;
-  height: calc(100vh - 80px);
+  background-color: #f06a32;
+  width: 50vw;
+  padding: 30px;
+  margin: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,6 +104,44 @@ textarea {
 
 .loginPage p {
   font-size: 30px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.login-with-fb-btn {
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 5px 16px 12px 42px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  color: #757575;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png);
+  background-size: 20px 20px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+}
+.login-with-fb-btn:hover {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.137), 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.login-with-fb-btn:active {
+  background-color: #eeeeee;
+}
+.login-with-fb-btn:focus {
+  outline: none;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.096), 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 0 0 3px #c8dafc;
+}
+.login-with-fb-btn:disabled {
+  filter: grayscale(100%);
+  background-color: #ebebeb;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
 }
 
 /* GOOGLE BUTTOn */
@@ -214,13 +253,32 @@ textarea {
   color: #fff;
 }
 
+.edit{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #bbbbbba9;
+  color: #f06a32;
+  font-size: 18px;
+  font-weight:600;
+  padding: 5px;
+  cursor: pointer;
+  transition:0.5s all;
+}
+.edit:hover{
+  transition:0.5s all;
+  background-color: #f06a32;
+  color: #fff;
+}
+
 .learn{
   display:flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
   background-color: #bbbbbba9;
-  color: #ff501a;
+  color: #246397;
   font-size: 18px;
   font-weight:600;
   padding: 5px;
@@ -229,12 +287,11 @@ textarea {
 }
 .learn:hover{
   transition:0.5s all;
-  background-color: #ff501a;
+  background-color: #246397;
   color: #fff;
 }
 
 .Logout{
-  margin-left: 60%;
   padding: 6px 9px;
   background: #142f46;
   border: 2px solid #246397;
@@ -273,7 +330,7 @@ nav a{
 }
 nav a:hover{
   transition:0.5s all;
-  color: black;
+  color: #f06a32;
 }
 
 
@@ -293,7 +350,10 @@ nav a:hover{
   color: #c8dafc;
   padding: 5px 5px;
 }
-
+.details-img{
+  max-width: 300px;
+  max-height: 300px;
+}
 .header1{
   font-size: 15px;
 }
@@ -301,4 +361,46 @@ nav a:hover{
 .logo{
   width: 50px;
   height: 50px;
+}
+#message{
+  display: none !important;
+}
+
+
+
+
+.profile-image{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+h3, p{
+  margin-top: 5px;
+}
+
+nav {
+  margin: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #246397;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.user-navbar-1{
+  gap: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-navbar-2{
+  gap: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

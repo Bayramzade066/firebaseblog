@@ -34,7 +34,7 @@ useEffect(() => {
 
  <div className="homePage ">
         {newlists.map((news)=>{
-           return <div  className="post">
+           return <div key={news.id}  className="post">
                   <div className="url">
                     <img src={`${news.url}`} alt="" />
                   </div>
@@ -42,13 +42,19 @@ useEffect(() => {
                   <p ><span className='header1'>Kateqoriya: </span><span className='category'>{news.category}</span></p>
                   <p><span className='header1'>Yazar: </span> {news.author.name}</p>
                   <Link to={`/postdetails/${news.id}`}  className="learn">Ətraflı oxu</Link>
-                  
-                  <div className="deletePost">
-                    {IsAuth && news.author.id === auth.currentUser.email && (
-                       <button onClick={()=>{deletePost(news.id)}}>Sil</button>
-                    )}
+                    {IsAuth && <>          
+                    {news.author.id === auth.currentUser.email || news.author.number  === auth.currentUser.phoneNumber ? (
+                        <Link to={`/updatepost/${news.id}`}  className="edit">Duzəlt</Link>
+                    ):null}
                    
-                  </div>
+
+                  <div className="deletePost">
+                    { news.author.id === auth.currentUser.email || news.author.number  === auth.currentUser.phoneNumber ? (
+                       <button onClick={()=>{deletePost(news.id)}}>Sil</button>
+                    ):null}
+                    </div>
+                  </> }
+                  
               </div>
         })}
     </div>
